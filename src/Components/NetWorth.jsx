@@ -30,6 +30,7 @@ const NetWorth = () => {
 
     return (
         <Box sx={{ pb: 3, pl: 0}}>
+
             <Paper elevation={0} sx={{ p: 2, borderRadius: 2 }}>
                 <Typography variant="h6" sx={{ fontWeight: 600, ml: 1, mb:2, color: "#341f97" }}>
                     Your Net Worth

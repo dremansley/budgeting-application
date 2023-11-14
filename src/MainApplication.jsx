@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {lazy, Suspense, useState} from "react";
 import {darkTheme, lightTheme} from "./utils/theme.js";
 import {ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,12 +12,15 @@ import Statistics from "./Components/Statistics.jsx";
 
 const MainApplication = () => {
 
+    const TransactionImporter = lazy(()=> import("./Components/TransactionImporter.jsx"))
+
     const [theme] = useState(lightTheme);
+    const [showTransactionImporterModal, setShowTransactionImporterModal] = useState(false);
 
     return (<div className="App">
             <ThemeProvider theme={theme}>
                 <CssBaseline/>
-                <Header/>
+                <Header setShowTransactionImporterModal={()=> setShowTransactionImporterModal(true)}/>
                 <Box sx={{display: "flex"}}>
                     <Box sx={{flexGrow: 1, padding: 2}}>
                         <Grid container spacing={3} xs={12}>
@@ -32,10 +35,14 @@ const MainApplication = () => {
                                 <Statistics />
                                 <RecentTransactionsTable/>
                             </Grid>
-
                         </Grid>
                     </Box>
                 </Box>
+                {showTransactionImporterModal &&
+                    <Suspense fallback={""}>
+                        <TransactionImporter open={showTransactionImporterModal} setOpen={(to)=> setShowTransactionImporterModal(to)} />
+                    </Suspense>
+                }
             </ThemeProvider>
         </div>
     )

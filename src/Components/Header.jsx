@@ -19,7 +19,7 @@ import {useState} from "react";
 import {Avatar, Button} from "@mui/material";
 import {CloudUpload} from "@mui/icons-material";
 
-export default function Header(props) {
+export default function Header({setShowTransactionImporterModal}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const [activeTab, setActiveTab] = useState("Dashboard");
@@ -178,7 +178,7 @@ export default function Header(props) {
                         component="span"
                         size={"small"}
                         sx={{color: "#341f97", borderColor:"#341f97", borderWidth: 1, fontWeight: 600, ml: 3}}
-                        onClick={() => props.setShowCSVUploader(true)}
+                        onClick={setShowTransactionImporterModal}
                     >
                         Import Transactions
                     </Button>
