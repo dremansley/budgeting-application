@@ -1,0 +1,41 @@
+#root {
+  margin: 0 auto;
+  width:100vw;
+  background:#f1f1f1;
+}
+
+.card {
+  padding: 2em;
+  border-radius:20px
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.MuiTab-root{
+  color:grey !important;
+}
+.MuiTab-root.Mui-selected{
+  font-weight:600;
+  color: #341f97 !important
+}
+.MuiTab-root{
+  text-transform: capitalize !important;
+}
+button:focus, button:focus-visible{
+  outline:none !important;
+}
+
+.green-cell{
+  color: green;
+}
+.red-cell{
+  color:red;
+}
+.MuiTabs-indicator{
+  display: none
+}
+.MuiPaper-root::before{
+  display: none !important;
+}
